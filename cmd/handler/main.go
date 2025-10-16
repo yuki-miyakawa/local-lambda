@@ -1,29 +1,30 @@
 package main
 
 import (
-    "context"
-    "fmt"
-    "strings"
+	"context"
 
-    "github.com/aws/aws-lambda-go/lambda"
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 type Request struct {
-    Name string `json:"name"`
+	Name   string `json:"name"`
+	Age    int    `json:"age"`
+	Job    string `json:"job"`
+	Gender string `json:"gender"`
 }
 
 type Response struct {
-    Message string `json:"message"`
+	Name   string `json:"name"`
+	Age    int    `json:"age"`
+	Job    string `json:"job"`
+	Gender string `json:"gender"`
 }
 
 func handler(ctx context.Context, req Request) (Response, error) {
-    name := strings.TrimSpace(req.Name)
-    if name == "" {
-        name = "World"
-    }
-    return Response{Message: fmt.Sprintf("Hello, %s!", name)}, nil
+	res := Response(req)
+	return res, nil
 }
 
 func main() {
-    lambda.Start(handler)
+	lambda.Start(handler)
 }

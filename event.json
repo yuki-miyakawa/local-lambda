@@ -1,3 +1,6 @@
 {
-  "name": "Lambda"
+  "name": "John Doe",
+  "age": 21,
+  "Job": "Developer",
+  "Gender": "Male"
 }

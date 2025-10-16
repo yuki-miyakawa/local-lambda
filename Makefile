@@ -2,12 +2,6 @@ APP_NAME ?= local-lambda
 IMAGE_NAME ?= $(APP_NAME):latest
 ARCH ?= arm64
 
-bootstrap:
-	CGO_ENABLED=0 GOOS=linux GOARCH=$(ARCH) go build -o ./bin/bootstrap ./cmd/handler
-
-clean:
-	rm -f ./bin/bootstrap
-
 .PHONY: docker-build
 
 docker-build:
