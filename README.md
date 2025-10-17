@@ -1,12 +1,10 @@
 # local-lambda
 
-Go で実装した Lambda 関数を `public.ecr.aws/lambda/provided:al2.2025.10.04.11` ベースのコンテナでローカル実行するための最小構成です。
+Go で実装した Lambda 関数を `public.ecr.aws/lambda/provided:al2.2025.10.04.11` ベースのコンテナでローカル実行するための最小構成
 
 ## 必要要件
 
 - Docker
-- Go 1.22 以降
-- `jq` (レスポンス確認用、無くても問題ありません)
 
 ## 使い方
 
@@ -25,8 +23,3 @@ Go で実装した Lambda 関数を `public.ecr.aws/lambda/provided:al2.2025.10.
    ```
 
 イベントの JSON は `event.json` にあり、必要に応じて編集してください。ハンドラーは `cmd/handler/main.go` にあり、`name` フィールドを受け取りメッセージを返します。
-
-## 開発メモ
-
-- `make bootstrap` で Linux 向けに `bootstrap` バイナリをビルドできます。
-- ビルド成果物を片付ける場合は `make clean` を実行してください。
